@@ -20,6 +20,10 @@ public class Separator {
     return defaultSeparate(inputString);
   }
 
+  private boolean isCustom(String inputString) {
+    return inputString.matches(CUSTOM_REGEX);
+  }
+
   private List<String> customSeparate(String inputString) {
     String customSeparate = extractCustomSeparate(inputString);
     separators.add(customSeparate);
@@ -34,11 +38,7 @@ public class Separator {
     return inputString.substring(2, newlineIndex);
   }
 
-  private boolean isCustom(String inputString) {
-    return inputString.matches(CUSTOM_REGEX);
-  }
-
-  public List<String> defaultSeparate(String inputString) {
+  private List<String> defaultSeparate(String inputString) {
     String regex = separators.stream()
         .map(Pattern::quote)
         .collect(Collectors.joining("|"));
