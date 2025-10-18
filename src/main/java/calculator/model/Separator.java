@@ -39,6 +39,10 @@ public class Separator {
   }
 
   private List<String> defaultSeparate(String inputString) {
+    if(inputString.equals("\"\"")) {
+      return List.of("0");
+    }
+
     String regex = separators.stream()
         .map(Pattern::quote)
         .collect(Collectors.joining("|"));
