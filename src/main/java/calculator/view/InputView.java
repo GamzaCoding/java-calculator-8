@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 public class InputView {
   private static final String ZERO_REGEX = "\"\"";
   private static final String DEFAULT_REGEX = "^[0-9]+([:,][0-9]+)*";
-  private static final String CUSTOM_REGEX = "^//.+\\n.*";
+  private static final String CUSTOM_REGEX = "^//.+\\\\n.*";
 
   public String getInputString() {
     String inputString = Console.readLine();

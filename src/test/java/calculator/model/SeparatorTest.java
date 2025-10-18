@@ -24,7 +24,7 @@ class SeparatorTest {
   void 커스텀_구분자_구분_기능() {
     //given
     Separator separator = new Separator();
-    String customInputString = "//;\n1;2;3";
+    String customInputString = "//;\\n1;2;3";
 
     List<String> expect = List.of("1", "2", "3");
 

@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Separator {
   public static final String COMMA = ",";
   public static final String COLON = ":";
-  private static final String CUSTOM_REGEX = "^//.+\\n.*";
+  private static final String CUSTOM_REGEX = "^//.+\\\\n.*";
 
   private final List<String> separators = new ArrayList<>(Arrays.asList(COMMA, COLON));
 
@@ -28,13 +28,13 @@ public class Separator {
     String customSeparate = extractCustomSeparate(inputString);
     separators.add(customSeparate);
 
-    String customInputString = inputString.substring(inputString.indexOf("\n") + 1);
+    String customInputString = inputString.substring(inputString.indexOf("n") + 1);
 
     return defaultSeparate(customInputString);
   }
 
   private String extractCustomSeparate(String inputString) {
-    int newlineIndex = inputString.indexOf("\n");
+    int newlineIndex = inputString.indexOf("\\");
     return inputString.substring(2, newlineIndex);
   }
 
