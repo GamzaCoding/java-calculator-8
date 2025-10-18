@@ -17,6 +17,6 @@ class SeparatorTest {
     List<String> actual = separator.separate(inputString);
 
     //then
-    Assertions.assertThat(expect.equals(actual)).isTrue();
+    Assertions.assertThat(expect).isEqualTo(actual);
   }
 }
