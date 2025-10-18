@@ -19,4 +19,19 @@ class SeparatorTest {
     //then
     Assertions.assertThat(expect).isEqualTo(actual);
   }
+
+  @Test
+  void 커스텀_구분자_구분_기능() {
+    //given
+    Separator separator = new Separator();
+    String customInputString = "//;\n1;2;3";
+
+    List<String> expect = List.of("1", "2", "3");
+
+    //when
+    List<String> actual = separator.separate(customInputString);
+
+    //then
+    Assertions.assertThat(expect).isEqualTo(actual);
+  }
 }
