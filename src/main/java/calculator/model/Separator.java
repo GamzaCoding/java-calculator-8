@@ -10,15 +10,15 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Separator {
-    private static final String COMMA = ",";
-    private static final String COLON = ":";
+    private static final String DEFAULT_NO1 = ",";
+    private static final String DEFAULT_NO2 = ":";
     private static final String ZERO = "0";
     private static final String BACK_SLASH = "\\";
     private static final String START_OF_HEADER_MARK = "//";
     private static final String END_OF_HEADER_MARK = "n";
     private static final String DELIMITER = "|";
 
-    private final List<String> separators = new ArrayList<>(Arrays.asList(COMMA, COLON));
+    private final List<String> separators = new ArrayList<>(Arrays.asList(DEFAULT_NO1, DEFAULT_NO2));
 
     public List<String> separate(String inputString) {
         if (isCustom(inputString)) {
