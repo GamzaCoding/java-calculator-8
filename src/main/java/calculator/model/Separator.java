@@ -1,7 +1,7 @@
 package calculator.model;
 
+import static calculator.utility.RegexConstants.BLANK_INPUT_REGEX;
 import static calculator.utility.RegexConstants.CUSTOM_INPUT_REGEX;
-import static calculator.utility.RegexConstants.DOUBLE_QUOTATION_MARKS_INPUT_REGEX;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +52,7 @@ public class Separator {
     }
 
     private List<String> defaultSeparate(String inputString) {
-        if (inputString.equals(DOUBLE_QUOTATION_MARKS_INPUT_REGEX)) {
+        if (inputString.matches(BLANK_INPUT_REGEX)) {
             return List.of(ZERO);
         }
 
