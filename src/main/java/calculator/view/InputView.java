@@ -1,22 +1,31 @@
 package calculator.view;
 
-import static calculator.utility.RegexConstants.*;
+import static calculator.utility.RegexConstants.CUSTOM_INPUT_REGEX;
+import static calculator.utility.RegexConstants.DEFAULT_INPUT_REGEX;
+import static calculator.utility.RegexConstants.DOUBLE_QUOTATION_MARKS_INPUT_REGEX;
 
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-  public String getInputString() {
-    String inputString = Console.readLine();
-    validate(inputString);
-    return inputString;
-  }
+    public String getInputString() {
+        String inputString = Console.readLine();
+        validate(inputString);
 
-  private void validate(String inputString) {
-    if (inputString.matches(DOUBLE_QUOTATION_MARKS_INPUT_REGEX)) return;
-    if (inputString.matches(DEFAULT_INPUT_REGEX)) return;
-    if (inputString.matches(CUSTOM_INPUT_REGEX)) return;
+        return inputString;
+    }
 
-    throw new IllegalArgumentException();
-  }
+    private void validate(String inputString) {
+        if (inputString.matches(DOUBLE_QUOTATION_MARKS_INPUT_REGEX)) {
+            return;
+        }
+        if (inputString.matches(DEFAULT_INPUT_REGEX)) {
+            return;
+        }
+        if (inputString.matches(CUSTOM_INPUT_REGEX)) {
+            return;
+        }
+
+        throw new IllegalArgumentException();
+    }
 }
