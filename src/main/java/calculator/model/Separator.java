@@ -40,7 +40,7 @@ public class Separator {
         return defaultSeparate(customInputString);
     }
 
-    private static String extractBodyFromInput(String inputString) {
+    private String extractBodyFromInput(String inputString) {
         int bodyIndex = inputString.indexOf(END_OF_HEADER_MARK) + END_OF_HEADER_MARK.length();
         return inputString.substring(bodyIndex);
     }
