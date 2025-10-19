@@ -13,9 +13,9 @@ public class Separator {
   private static final String COLON = ":";
   private static final String ZERO = "0";
   private static final String BACK_SLASH = "\\";
+  private static final String START_OF_HEADER_MARK = "//";
   private static final String END_OF_HEADER_MARK = "n";
   private static final String DELIMITER = "|";
-  private static final int FRONT_INDEX_OF_CUSTOM_SEPARATOR = 2;
 
   private final List<String> separators = new ArrayList<>(Arrays.asList(COMMA, COLON));
 
@@ -40,14 +40,14 @@ public class Separator {
   }
 
   private static String extractBodyFromInput(String inputString) {
-    int endOfHeadIndex = inputString.indexOf(END_OF_HEADER_MARK);
-    int bodyIndex = endOfHeadIndex + END_OF_HEADER_MARK.length();
+    int bodyIndex = inputString.indexOf(END_OF_HEADER_MARK) + END_OF_HEADER_MARK.length();
     return inputString.substring(bodyIndex);
   }
 
   private String extractCustomSeparator(String inputString) {
-    int behindIndexOfCustomSeparator = inputString.indexOf(BACK_SLASH);
-    return inputString.substring(FRONT_INDEX_OF_CUSTOM_SEPARATOR, behindIndexOfCustomSeparator);
+    int end = inputString.indexOf(BACK_SLASH);
+    int start = START_OF_HEADER_MARK.length();
+    return inputString.substring(start, end);
   }
 
   private List<String> defaultSeparate(String inputString) {
@@ -55,9 +55,9 @@ public class Separator {
       return List.of(ZERO);
     }
 
-    String regex = changeSeparatorsToRegex();
+    String separator = changeSeparatorsToRegex();
 
-    return Arrays.stream(inputString.split(regex))
+    return Arrays.stream(inputString.split(separator))
         .map(String::trim)
         .collect(Collectors.toList());
   }
