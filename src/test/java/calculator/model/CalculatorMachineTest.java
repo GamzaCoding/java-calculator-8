@@ -9,8 +9,8 @@ class CalculatorMachineTest {
     void 숫자들의_합_계산_기능() {
         //given
         CalculatorMachine calculatorMachine = new CalculatorMachine();
-        List<String> numbers = List.of("1", "2", "3");
-        int expect = 6;
+        List<String> numbers = List.of("10", "20", "30");
+        int expect = 60;
 
         //when
         int actual = calculatorMachine.sum(numbers);
