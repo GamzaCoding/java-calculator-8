@@ -1,5 +1,7 @@
 package calculator.model;
 
+import static calculator.utility.RegexConstants.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,9 +9,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Separator {
-  public static final String COMMA = ",";
-  public static final String COLON = ":";
-  private static final String CUSTOM_REGEX = "^//.+\\\\n.*";
+  private static final String COMMA = ",";
+  private static final String COLON = ":";
 
   private final List<String> separators = new ArrayList<>(Arrays.asList(COMMA, COLON));
 
@@ -21,7 +22,7 @@ public class Separator {
   }
 
   private boolean isCustom(String inputString) {
-    return inputString.matches(CUSTOM_REGEX);
+    return inputString.matches(CUSTOM_INPUT_REGEX);
   }
 
   private List<String> customSeparate(String inputString) {
